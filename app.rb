@@ -35,7 +35,13 @@ class App < Sinatra::Base
     if @operation.include?('add')
       @new = '+'
       elsif @operation.include?('subtract')
-    #@sum = @num_1.send(@operation, @num_2)
-    #"#{@sum}"
+      @new = '-'
+      elsif @operation.include?('multiply')
+      @new = '*'
+    else
+      @new = '/'
+    end
+    @sum = @num_1.send(@new, @num_2)
+    "#{@sum}"
   end 
 end
